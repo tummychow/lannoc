@@ -1,0 +1,26 @@
+<!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p><%=h @config[:desc] %></p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <% @items.select { |item| item[:weight] }.sort_by { |item| item[:weight] }.each do |item| %>
+      <a class="sidebar-nav-item <% if item.identifier == @item.identifier %> active <% end %>" href="<%= item.path %>"><%=h item[:title] %></a>
+    <% end %>
+
+    <a class="sidebar-nav-item" href="<%= @config[:github][:repo] %>">GitHub project</a>
+    <a class="sidebar-nav-item" href="<%= @config[:github][:repo] %>/archive/<%= @config[:github][:version] %>.zip">Download</a>
+    <span class="sidebar-nav-item">Currently on <%=h @config[:github][:version] %></span>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; <%=h Time.now.year.inspect %>. All rights reserved.
+    </p>
+  </div>
+</div>

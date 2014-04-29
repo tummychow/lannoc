@@ -1,0 +1,33 @@
+# this is equivalent to a default nanoc.yaml
+text_extensions: [ 'coffee', 'css', 'erb', 'haml', 'handlebars', 'hb', 'htm', 'html', 'js', 'less', 'markdown', 'md', 'ms', 'mustache', 'php', 'rb', 'sass', 'scss', 'txt', 'xhtml', 'xml' ]
+output_dir: output
+index_filenames: [ 'index.html' ]
+enable_output_diff: false
+prune:
+  auto_prune: false
+  exclude: [ '.git', '.hg', '.svn', 'CVS' ]
+data_sources:
+  -
+    type: filesystem_unified
+    items_root: /
+    layouts_root: /
+    allow_periods_in_identifiers: false
+
+
+
+# this is for site configs
+title: "Lannoc"
+tagline: "Lanyon? Nanoc? Lannoc!"
+desc: "Lanyon, but powered by nanoc."
+date: "%b %-d %Y"
+
+# these are needed for atom feed generation
+author_name: "Stephen Jung"
+author_uri: "https://github.com/tummychow"
+base_url: "https://tummychow.github.io/lannoc" # no trailing slash!
+
+pagination: 2
+
+github:
+  repo: "https://github.com/tummychow/lannoc"
+  version: "master"

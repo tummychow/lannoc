@@ -1,0 +1,117 @@
+#!/usr/bin/env ruby
+
+preprocess do
+  # pagination
+  # http://stackoverflow.com/a/503201/3274401
+  2.upto((articles.length - 1) / @config[:pagination] + 1) do |page_id|
+    @items << Nanoc::Item.new(
+      "<%= render 'paginate', :page_id => #{page_id} %>",
+      {:title => "Page #{page_id}", :extension => 'html'},
+      "/page/#{page_id}/"
+    )
+  end
+
+  # year indexes
+  articles.map { |item| attribute_to_time(item[:created_at]).year }.uniq.each do |year|
+    @items << Nanoc::Item.new(
+      "<%= render 'article_list', :articles => articles_period(#{year}) %>",
+      {:title => "#{year}", :kind => 'fixed', :extension => 'html'},
+      "/#{year}/"
+    )
+
+    # month indexes
+    articles_period(year).map{ |item| attribute_to_time(item[:created_at]).month }.uniq.each do |month|
+      @items << Nanoc::Item.new(
+        "<%= render 'article_list', :articles => articles_period(#{year}, #{month}) %>",
+        {:title => "#{Date::ABBR_MONTHNAMES[month]} #{year}", :kind => 'fixed', :extension => 'html'},
+        "/#{year}/#{'%02d' % month}"
+      )
+
+      # day indexes
+      articles_period(year, month).map{ |item| attribute_to_time(item[:created_at]).day }.uniq.each do |day|
+        @items << Nanoc::Item.new(
+          "<%= render 'article_list', :articles => articles_period(#{year}, #{month}, #{day}) %>",
+          {:title => "#{Date::MONTHNAMES[month]} #{day} #{year}", :kind => 'fixed', :extension => 'html'},
+          "/#{year}/#{'%02d' % month}/#{'%02d' % day}"
+        )
+      end
+    end
+  end
+
+  # top-level atom feed
+  @items << Nanoc::Item.new(
+    "<%= atom_feed(:articles => sorted_articles) %>",
+    {:title => @config[:title], :extension => 'atom'},
+    'feed'
+  )
+
+  # atom feeds and article lists by tag
+  sorted_tags.each do |tag|
+    @items << Nanoc::Item.new(
+      "<%= render 'tag_list', :tag => \"#{tag}\" %>",
+      {:title => "Tag - #{tag}", :kind => 'fixed', :extension => 'html'},
+      "/tag/#{tag}/"
+    )
+    @items << Nanoc::Item.new(
+      "<%= atom_feed(:articles => for_tag(sorted_articles, \"#{tag}\")) %>",
+      {:title => "#{@config[:title]} - #{tag}", :extension => 'atom'},
+      "/tag/#{tag}/feed/"
+    )
+  end
+end
+
+
+
+compile '*' do
+  if item[:extension] == 'md' || item[:extension] == 'html'
+    # note the trim mode (discards trailing newline after ERB tag) - useful for erb in markdown
+    filter :erb, :trim_mode => '-'
+
+    if item[:extension] == 'md'
+      filter :redcarpet, :renderer => HTMLPantsCode,
+        :options => {:fenced_code_blocks => true, :tables => true, :strikethrough => true}
+      filter :colorize_syntax, :default_colorizer => :pygmentsrb
+      snapshot :render_md # currently equivalent to :pre
+    end
+
+    if item[:kind] == 'article'
+      layout 'article'
+    elsif item[:kind] == 'fixed'
+      layout 'fixed'
+    end
+
+    # any item whose route is expected to be nil should
+    # be matched here (to exclude its default layout)
+    unless item[:kind] == 'tag'
+      layout 'default'
+      filter :relativize_paths, :type => :html
+    end
+  elsif item[:extension] == 'atom'
+    filter :erb
+  end
+end
+
+
+
+route "/404/" do
+  "/404.html"
+end
+
+route '*' do
+  if item.binary?
+    item.identifier.chop + '.' + item[:extension]
+  elsif item[:kind] == 'tag'
+    nil
+  elsif item[:extension] == 'css'
+    item.identifier.chop + '.css'
+  elsif item[:extension] == 'atom'
+    item.identifier.chomp("feed/") + 'atom.xml'
+  elsif item[:kind] == 'article'
+    # jekyll-style permalinks for posts
+    attribute_to_time(item[:created_at]).strftime("/%Y/%m/%d/") + u(item[:title]) + '/index.html'
+  else
+    item.identifier + 'index.html'
+  end
+end
+
+layout '*', :erb

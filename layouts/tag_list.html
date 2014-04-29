@@ -1,0 +1,8 @@
+<!-- @tag is a string identifying the tag that this page corresponds to -->
+<% for_tag(@items.select { |item| item[:kind] == 'tag' }, @tag).each do |item| %>
+  <%= item.compiled_content(:snapshot => :render_md) %>
+<% end %>
+
+<%= render 'article_list', :articles => for_tag(sorted_articles, @tag) %>
+
+<link href="/tag/<%=u @tag %>/atom.xml" type="application/atom+xml" rel="alternate">
