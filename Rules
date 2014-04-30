@@ -1,6 +1,9 @@
 #!/usr/bin/env ruby
 
 preprocess do
+  # discard drafts FIRST (since they might affect the content of other generated items)
+  @items.delete_if { |item| item[:draft] == true || item[:publish] == false } unless @config[:publish_drafts]
+
   # pagination
   # http://stackoverflow.com/a/503201/3274401
   2.upto((articles.length - 1) / @config[:pagination] + 1) do |page_id|

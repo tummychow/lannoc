@@ -91,6 +91,10 @@ Lannoc retains Lanyon's sidebar and provides easy sorting of the sidebar content
 
 Links between pages of the generated site are relative; therefore the site can be deployed directly to GitHub Pages. To take advantage of the ATOM feeds, you'll need to set the `base_url` in nanoc.yaml.
 
+## Drafts
+
+If an item's front matter contains `publish: false` or `draft: true`, then it will not be included in generated content. It won't be referenced by any other generated pages, either (for example, it won't appear on any tag pages). You can override that behavior by specifying `publish_drafts: true` in nanoc.yaml.
+
 ## Watch
 
 I usually execute `bundle exec guard` and `bundle exec nanoc view` in the background, to continuously recompile the nanoc site and serve it locally. This is similar to `jekyll serve -w`.
