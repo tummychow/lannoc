@@ -43,3 +43,12 @@ def articles_period(year = nil, month = nil, day = nil)
   ret.select! { |item| attribute_to_time(item[:created_at]).day == day } if day
   ret
 end
+
+# generates a nanoc item containing an atom feed for this list of articles
+def feed_item (list, title = @config[:title], identifier = '/feed/')
+  Nanoc::Item.new(
+    "<%= atom_feed(:articles => @item[:list]) %>",
+    {:title => title, :extension => 'atom', :list => list},
+    identifier
+  )
+end

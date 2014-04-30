@@ -42,11 +42,7 @@ preprocess do
   end
 
   # top-level atom feed
-  @items << Nanoc::Item.new(
-    "<%= atom_feed(:articles => sorted_articles) %>",
-    {:title => @config[:title], :extension => 'atom'},
-    'feed'
-  )
+  @items << feed_item(sorted_articles)
 
   # atom feeds and article lists by tag
   sorted_tags.each do |tag|
@@ -55,11 +51,7 @@ preprocess do
       {:title => "Tag - #{tag}", :kind => 'fixed', :extension => 'html'},
       "/tag/#{tag}/"
     )
-    @items << Nanoc::Item.new(
-      "<%= atom_feed(:articles => for_tag(sorted_articles, \"#{tag}\")) %>",
-      {:title => "#{@config[:title]} - #{tag}", :extension => 'atom'},
-      "/tag/#{tag}/feed/"
-    )
+    @items << feed_item(for_tag(sorted_articles, tag), @config[:title] + ' - ' + tag, "/tag/#{tag}/feed/")
   end
 end
 
