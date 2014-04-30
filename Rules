@@ -71,7 +71,7 @@ compile '*' do
       filter :redcarpet, :renderer => HTMLPantsCode,
         :options => {:fenced_code_blocks => true, :tables => true, :strikethrough => true}
       filter :colorize_syntax, :default_colorizer => :coderay,
-        :coderay => {:line_numbers => nil, :line_number_anchors => false, :bold_every => nil}
+        :coderay => {:line_numbers => nil, :line_number_anchors => false, :bold_every => false}
       snapshot :render_md # currently equivalent to :pre
     end
 
