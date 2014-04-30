@@ -12,7 +12,8 @@ gem 'redcarpet', '~> 3.1.1'
 gem 'nokogiri', '~> 1.5'
 
 # required for syntax highlighting
-gem 'pygments.rb', '~> 0.5.0'
+# gem 'pygments.rb', '~> 0.5.0'
+gem 'coderay', '~> 1.1.0'
 
 # required for atom feed generation
 gem 'builder', '~> 3.2.2'
