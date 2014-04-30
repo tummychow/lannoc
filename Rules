@@ -14,34 +14,7 @@ preprocess do
     )
   end
 
-  # year indexes
-  articles.map { |item| attribute_to_time(item[:created_at]).year }.uniq.each do |year|
-    @items << Nanoc::Item.new(
-      "<%= render 'article_list', :articles => articles_period(#{year}) %>",
-      {:title => "#{year}", :kind => 'fixed', :extension => 'html'},
-      "/#{year}/"
-    )
-
-    # month indexes
-    articles_period(year).map{ |item| attribute_to_time(item[:created_at]).month }.uniq.each do |month|
-      @items << Nanoc::Item.new(
-        "<%= render 'article_list', :articles => articles_period(#{year}, #{month}) %>",
-        {:title => "#{Date::ABBR_MONTHNAMES[month]} #{year}", :kind => 'fixed', :extension => 'html'},
-        "/#{year}/#{'%02d' % month}"
-      )
-
-      # day indexes
-      articles_period(year, month).map{ |item| attribute_to_time(item[:created_at]).day }.uniq.each do |day|
-        @items << Nanoc::Item.new(
-          "<%= render 'article_list', :articles => articles_period(#{year}, #{month}, #{day}) %>",
-          {:title => "#{Date::MONTHNAMES[month]} #{day} #{year}", :kind => 'fixed', :extension => 'html'},
-          "/#{year}/#{'%02d' % month}/#{'%02d' % day}"
-        )
-      end
-    end
-  end
-
-  # top-level atom feed
+  @items.push(*generate_ymd_indices)
   @items << feed_item(sorted_articles)
 
   # atom feeds and article lists by tag

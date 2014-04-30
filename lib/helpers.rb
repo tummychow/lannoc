@@ -35,15 +35,6 @@ def for_tag(arr, tag)
   arr.select { |item| (item[:tags] || []).include?(tag) }
 end
 
-require 'date'
-def articles_period(year = nil, month = nil, day = nil)
-  ret = sorted_articles
-  ret.select! { |item| attribute_to_time(item[:created_at]).year == year } if year
-  ret.select! { |item| attribute_to_time(item[:created_at]).month == month } if month
-  ret.select! { |item| attribute_to_time(item[:created_at]).day == day } if day
-  ret
-end
-
 # generates a nanoc item containing an atom feed for this list of articles
 def feed_item (list, title = @config[:title], identifier = '/feed/')
   Nanoc::Item.new(
@@ -51,4 +42,56 @@ def feed_item (list, title = @config[:title], identifier = '/feed/')
     {:title => title, :extension => 'atom', :list => list},
     identifier
   )
+end
+
+require 'date'
+# returns an array of items, containing indices for the year, month and day
+# then you can @items.push(*generate_ymd_indices) to push them into the items list
+def generate_ymd_indices
+  years = {}
+  months = {}
+  days = {}
+
+  sorted_articles.each do |item|
+    time = attribute_to_time(item[:created_at])
+
+    years[time.year] ||= []
+    years[time.year] << item
+
+    months[time.year] ||= {}
+    months[time.year][time.month] ||= []
+    months[time.year][time.month] << item
+
+    days[time.year] ||= {}
+    days[time.year][time.month] ||= {}
+    days[time.year][time.month][time.day] ||= []
+    days[time.year][time.month][time.day] << item
+  end
+
+  ret = []
+  years.each do |year, a_year|
+    ret << Nanoc::Item.new(
+      "<%= render 'article_list', :articles => @item[:list] %>",
+      {:title => "#{year}", :kind => 'fixed', :extension => 'html', :list => a_year},
+      "/#{year}/"
+    )
+
+    months[year].each do |month, a_month|
+      ret << Nanoc::Item.new(
+        "<%= render 'article_list', :articles => @item[:list] %>",
+        {:title => "#{Date::ABBR_MONTHNAMES[month]} #{year}", :kind => 'fixed', :extension => 'html', :list => a_month},
+        "/#{year}/#{'%02d' % month}/"
+      )
+
+      days[year][month].each do |day, a_day|
+        ret << Nanoc::Item.new(
+          "<%= render 'article_list', :articles => @item[:list] %>",
+          {:title => "#{Date::ABBR_MONTHNAMES[month]} #{day} #{year}", :kind => 'fixed', :extension => 'html', :list => a_day},
+          "/#{year}/#{'%02d' % month}/#{'%02d' % day}/"
+        )
+      end
+    end
+  end
+
+  ret
 end
