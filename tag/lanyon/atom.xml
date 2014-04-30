@@ -91,14 +91,14 @@
 &lt;h3&gt;Code&lt;/h3&gt;
 
 &lt;p&gt;Cum sociis natoque penatibus et magnis dis &lt;code&gt;code element&lt;/code&gt; montes, nascetur ridiculus mus.&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-javascript"&gt;&lt;span class="c1"&gt;// Example can be run directly in your JavaScript console&lt;/span&gt;
+&lt;div class="CodeRay"&gt;&lt;div class="code"&gt;&lt;pre&gt;&lt;code class="language-javascript"&gt;&lt;span class="comment"&gt;// Example can be run directly in your JavaScript console&lt;/span&gt;
 
-&lt;span class="c1"&gt;// Create a function that takes two arguments and returns the sum of those arguments&lt;/span&gt;
-&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;adder&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nb"&gt;Function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"a"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"b"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"return a + b"&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="comment"&gt;// Create a function that takes two arguments and returns the sum of those arguments&lt;/span&gt;
+&lt;span class="keyword"&gt;var&lt;/span&gt; adder = &lt;span class="keyword"&gt;new&lt;/span&gt; Function(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;a&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;, &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;b&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;, &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;return a + b&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;);
 
-&lt;span class="c1"&gt;// Call the function&lt;/span&gt;
-&lt;span class="nx"&gt;adder&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-&lt;span class="c1"&gt;// &amp;gt; 8&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;span class="comment"&gt;// Call the function&lt;/span&gt;
+adder(&lt;span class="integer"&gt;2&lt;/span&gt;, &lt;span class="integer"&gt;6&lt;/span&gt;);
+&lt;span class="comment"&gt;// &amp;gt; 8&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.&lt;/p&gt;
 
 &lt;h3&gt;Lists&lt;/h3&gt;
