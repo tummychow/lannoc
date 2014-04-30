@@ -1,5 +1,6 @@
 include Nanoc::Helpers::Rendering
 include Nanoc::Helpers::Blogging
+include Nanoc::Helpers::HTMLEscape
 
 require 'redcarpet'
 class HTMLPantsCode < Redcarpet::Render::HTML
