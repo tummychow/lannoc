@@ -1,8 +1,10 @@
 #!/usr/bin/env ruby
 
 preprocess do
-  # discard drafts FIRST (since they might affect the content of other generated items)
-  @items.delete_if { |item| item[:draft] == true || item[:publish] == false } unless @config[:publish_drafts]
+  # discard drafts FIRST (since they might affect other generated items)
+   unless @config[:publish_drafts]
+    @items.delete_if { |item| item[:draft] == true || item[:publish] == false }
+  end
 
   # pagination
   # http://stackoverflow.com/a/503201/3274401
@@ -24,7 +26,11 @@ preprocess do
       {:title => "Tag - #{tag}", :kind => 'fixed', :extension => 'html'},
       "/tag/#{tag}/"
     )
-    @items << feed_item(for_tag(sorted_articles, tag), @config[:title] + ' - ' + tag, "/tag/#{tag}/feed/")
+    @items << feed_item(
+      for_tag(sorted_articles, tag),
+      @config[:title] + ' - ' + tag,
+      "/tag/#{tag}/feed/"
+    )
   end
 end
 
@@ -32,14 +38,25 @@ end
 
 compile '*' do
   if item[:extension] == 'md' || item[:extension] == 'html'
-    # note the trim mode (discards trailing newline after ERB tag) - useful for erb in markdown
+    # note the trim mode (discards trailing newline after ERB tag)
+    # useful for erb in markdown
     filter :erb, :trim_mode => '-'
 
     if item[:extension] == 'md'
       filter :redcarpet, :renderer => HTMLPantsCode,
-        :options => {:fenced_code_blocks => true, :tables => true, :strikethrough => true}
+        :options => {
+          :fenced_code_blocks => true,
+          :tables => true,
+          :strikethrough => true
+        }
+
       filter :colorize_syntax, :default_colorizer => :coderay,
-        :coderay => {:line_numbers => nil, :line_number_anchors => false, :bold_every => false}
+        :coderay => {
+          :line_numbers => nil,
+          :line_number_anchors => false,
+          :bold_every => false
+        }
+
       snapshot :render_md # currently equivalent to :pre
     end
 

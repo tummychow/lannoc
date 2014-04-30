@@ -2,6 +2,8 @@ include Nanoc::Helpers::Rendering
 include Nanoc::Helpers::Blogging
 include Nanoc::Helpers::HTMLEscape
 
+
+
 require 'redcarpet'
 class HTMLPantsCode < Redcarpet::Render::HTML
   include Redcarpet::Render::SmartyPants
@@ -11,18 +13,21 @@ class HTMLPantsCode < Redcarpet::Render::HTML
   end
 end
 
+
+
 require 'uri'
 # Sanitize a single path segment, removing most symbols and whitespace.
 def u(str)
-  # personally paths with symbols just feel out of place to me, even if they're legal
-  # i prefer to sanitize very aggressively
-  # plus i could swear webrick can't handle question marks properly which is a pain in development
-  # see also https://github.com/jekyll/jekyll/blob/master/lib/jekyll/url.rb#L92
+  # see https://github.com/jekyll/jekyll/blob/master/lib/jekyll/url.rb#L92
   # and http://blog.lunatech.com/2009/02/03/what-every-web-developer-must-know-about-url-encoding
   URI.escape(str.gsub(%r{[/=:,;~ ]+}, '-').gsub(%r{[^a-zA-Z\d\-+_.]}, '').downcase)
 end
 
+
+
 require 'set'
+# Generate an array containing all the tags used on the site, in ascending
+# order.
 def sorted_tags
   tag_set = Set.new
   articles.each do |item|
@@ -31,11 +36,15 @@ def sorted_tags
   tag_set.to_a.sort
 end
 
+# Return an array containing only the elements of arr whose tags attribute
+# contains the given tag.
 def for_tag(arr, tag)
   arr.select { |item| (item[:tags] || []).include?(tag) }
 end
 
-# generates a nanoc item containing an atom feed for this list of articles
+
+
+# Generate a nanoc item containing an Atom feed for this list of articles.
 def feed_item (list, title = @config[:title], identifier = '/feed/')
   Nanoc::Item.new(
     "<%= atom_feed(:articles => @item[:list]) %>",
@@ -44,9 +53,11 @@ def feed_item (list, title = @config[:title], identifier = '/feed/')
   )
 end
 
+
+
 require 'date'
-# returns an array of items, containing indices for the year, month and day
-# then you can @items.push(*generate_ymd_indices) to push them into the items list
+# Generate an array of items. Each item is an index, listing the articles over
+# a certain year, month of year, or day of month of year.
 def generate_ymd_indices
   years = {}
   months = {}
