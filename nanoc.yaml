@@ -19,7 +19,11 @@ data_sources:
 title: "Lannoc"
 tagline: "Lanyon? Nanoc? Lannoc!"
 desc: "Lanyon, but powered by nanoc."
+
+# date and partial date formats
 date: "%b %-d %Y"
+year: "%Y"
+monthyear: "%b %Y"
 
 # these are needed for atom feed generation
 author_name: "Stephen Jung"

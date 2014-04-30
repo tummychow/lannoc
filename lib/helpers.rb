@@ -72,22 +72,31 @@ def generate_ymd_indices
   years.each do |year, a_year|
     ret << Nanoc::Item.new(
       "<%= render 'article_list', :articles => @item[:list] %>",
-      {:title => "#{year}", :kind => 'fixed', :extension => 'html', :list => a_year},
-      "/#{year}/"
+      {
+        :title => Date.new(year).strftime(@config[:year]),
+        :kind => 'fixed', :extension => 'html', :list => a_year
+      },
+      Date.new(year).strftime("/%Y/")
     )
 
     months[year].each do |month, a_month|
       ret << Nanoc::Item.new(
         "<%= render 'article_list', :articles => @item[:list] %>",
-        {:title => "#{Date::ABBR_MONTHNAMES[month]} #{year}", :kind => 'fixed', :extension => 'html', :list => a_month},
-        "/#{year}/#{'%02d' % month}/"
+        {
+          :title => Date.new(year, month).strftime(@config[:monthyear]),
+          :kind => 'fixed', :extension => 'html', :list => a_month
+        },
+        Date.new(year, month).strftime("/%Y/%m/")
       )
 
       days[year][month].each do |day, a_day|
         ret << Nanoc::Item.new(
           "<%= render 'article_list', :articles => @item[:list] %>",
-          {:title => "#{Date::ABBR_MONTHNAMES[month]} #{day} #{year}", :kind => 'fixed', :extension => 'html', :list => a_day},
-          "/#{year}/#{'%02d' % month}/#{'%02d' % day}/"
+          {
+            :title => Date.new(year, month, day).strftime(@config[:date]),
+            :kind => 'fixed', :extension => 'html', :list => a_day
+          },
+          Date.new(year, month, day).strftime("/%Y/%m/%d/")
         )
       end
     end
