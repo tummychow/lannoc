@@ -4,7 +4,7 @@
 
 Lannoc aims for the same look and feel as the original Lanyon - a pure CSS sidebar that can be toggled on or off, leaving your content front and center. It's primarily intended for blogging, and has first-class support for tags, date-marked posts and an index with next/previous buttons.
 
-This document assumes you have basic familiarity with the concepts of static site generation (markdown with front matter, etc).
+This document assumes you have basic familiarity with the concepts of nanoc (items, Rules file, markdown with front matter, etc).
 
 ## Usage
 
@@ -16,9 +16,13 @@ $ cd lannoc
 $ bundle install
 ```
 
-Lannoc understands two basic types of content: articles and fixed pages (analogous to the post and page layouts from the original Lanyon). Articles are your usual blog posts, with dates and titles and so on. Fixpages don't have a date, only a title, and they generally don't get updated over time (eg the About page from the original Lanyon).
+Set up the config variables at the bottom of nanoc.yaml, and you're good to go.
 
-Articles require three front matter keys (these are mandatory):
+## Posts
+
+Lannoc understands two basic types of content: articles and fixed pages (analogous to the post and page layouts from the original Lanyon). Articles are your usual blog posts, with dates and titles and so on. Fixed pages don't have a date, only a title (eg the About page from the original Lanyon).
+
+Articles require three front matter keys (these are mandatory; if you don't include them, then nanoc will crash):
 
 ```yaml
 ---
@@ -87,9 +91,11 @@ page contents here
 
 Lannoc retains Lanyon's sidebar and provides easy sorting of the sidebar contents (which was a royal *pain* with Liquid templates). Anything which specifies the `weight` key in the front matter will be added to the sidebar. Items are sorted by ascending weight. The homepage has a weight of zero. Generally you want that to appear first in the sidebar, but nothing's stopping you from adding negative weights.
 
+Don't add the `weight` key to an item with `kind: "tag"`. nanoc will probably crash, because items with `kind: "tag"` have no path to link to on the sidebar.
+
 ## Deployment
 
-Links between pages of the generated site are relative; therefore the site can be deployed directly to GitHub Pages. To take advantage of the ATOM feeds, you'll need to set the `base_url` in nanoc.yaml.
+Links between pages of the generated site are relative; therefore the site can be deployed directly to GitHub Pages or any similar environment. You'll need to create a Git repository in the output directory, since GitHub doesn't have first-class support for nanoc (ie it doesn't compile nanoc sites on the server - for good reason, since nanoc allows arbitrary code injection). You'll still need to set the `base_url` in nanoc.yaml (required for Atom feeds).
 
 ## Drafts
 
@@ -110,5 +116,5 @@ nanoc has no conventions and is fundamentally more extensible than either of tho
 Well, I just needed to port my favorite theme to it... again.
 
 ## License
-MIT, see [LICENSE.md](LICENSE.md).
 
+MIT, see [LICENSE.md](LICENSE.md).
