@@ -80,8 +80,8 @@ end
 
 
 
-route "/404/" do
-  "/404.html"
+route '/404' do
+  '/404.html'
 end
 
 route '*' do
@@ -92,10 +92,10 @@ route '*' do
   elsif item[:extension] == 'css'
     item.identifier.chop + '.css'
   elsif item[:extension] == 'atom'
-    item.identifier.chomp("feed/") + 'atom.xml'
+    item.identifier.chomp('feed/') + 'atom.xml'
   elsif item[:kind] == 'article'
     # jekyll-style permalinks for posts
-    attribute_to_time(item[:created_at]).strftime("/%Y/%m/%d/") + u(item[:title]) + '/index.html'
+    attribute_to_time(item[:created_at]).strftime('/%Y/%m/%d/') + u(item[:title]) + '/index.html'
   else
     item.identifier + 'index.html'
   end
