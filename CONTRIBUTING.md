@@ -4,7 +4,7 @@ Pull requests and issues welcome. Let me explain how things are organized.
 
 ### content
 
-The nanoc `content` dir contains the... content. Files here are made into items. The `posts` and `tags` directories should generally not be touched (that's all examples). CSS improvements (`content/css`) are welcome, but I'd rather not change [`poole.css`](content/css/poole.css) or [`lanyon.css`](content/css/lanyon.css) since those are from upstream. `assets` is for binary stuff like images.
+The nanoc `content` dir contains the... content. Files here are made into items. The `posts` and `tags` directories should generally not be touched (that's all examples). `assets` is for binary stuff like images. CSS improvements (`content/css`) are welcome, but I'd rather not change [`poole.css`](content/css/poole.css) or [`lanyon.css`](content/css/lanyon.css) since those are from upstream. My changes to them are mostly the font stack, and converting `@media(min-width)` from rem to px (for justification, see [my old fork](https://github.com/tummychow/lanyon/commit/8fe5eb5)).
 
 The root items of `content` are for various standard pages: the [home page](content/index.html), the [post list](content/post.html) and the [about page](content/about.md). You can add new pages here if they're generally useful for a blog template, but don't add new example pages.
 
