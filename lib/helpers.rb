@@ -46,10 +46,23 @@ end
 
 
 # Generate a nanoc item containing an Atom feed for this list of articles.
-def feed_item (list, title = @config[:title], identifier = '/feed/')
+def feed_item(list, title = @config[:title], identifier = '/feed/')
   Nanoc::Item.new(
     '<%= atom_feed(:articles => @item[:list]) %>',
     {:title => title, :extension => 'atom', :list => list},
     identifier
   )
+end
+
+
+
+# Returns the given string, up to and not including the first instance of
+# "<!-- more -->".
+def summary(content)
+  content[0, content.index('<!-- more -->') || content.length]
+end
+
+# Returns true if the argument has a summary.
+def has_summary?(content)
+  content.include?('<!-- more -->')
 end

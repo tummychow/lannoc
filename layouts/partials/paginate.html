@@ -5,7 +5,12 @@
     <div class="post">
       <h1 class="post-title"><a href="<%= item.path %>"><%=h item[:title] %></a></h1>
       <span class="post-date"><%=h attribute_to_time(item[:created_at]).strftime(@config[:date]) %></span>
-      <%= item.compiled_content(:snapshot => :render_md) %>
+
+      <%= summary(item.compiled_content(:snapshot => :render_md)) %>
+
+      <% if has_summary?(item.compiled_content(:snapshot => :render_md)) %>
+        <p><a href="<%= item.path %>">Read the rest...</a></p>
+      <% end %>
     </div>
   <% end %>
 </div>

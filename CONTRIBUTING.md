@@ -45,6 +45,5 @@ The routing block is pretty simple, and doesn't require much explanation. This i
 - expand rakefile (deploy tasks?)
 - atom feed logos on paginated indices (/atom.xml) and individual tag pages (/tag/yourtaghere/atom.xml)
 - pandoc shell-call helper? (i use pandoc a lot)
-- rendered excerpts using `<!-- more -->`
 - xml sitemap using the existing helper
 - move to [rouge](https://github.com/jneen/rouge) (support is in [master](https://github.com/nanoc/nanoc/commit/2d9a7b9), but has not yet been [released](https://github.com/nanoc/nanoc/compare/3.6.9...master))
