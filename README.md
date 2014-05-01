@@ -36,15 +36,19 @@ This is a post!
 
 You can add more keys if you want. In particular, Lannoc supports a tags key, which is discussed [below](#tags).
 
-Markdown in Lannoc is powered by [Redcarpet](https://github.com/vmg/redcarpet), so it supports tables, strikethrough and fenced code (powered by [CodeRay](https://github.com/rubychan/coderay), but it's easy to switch to Jekyll's [Pygments.rb](https://github.com/tmm1/pygments.rb) if you prefer). After being rendered, markdown gets passed through ERB, so it can contain templates. If you don't want spurious newlines in your markdown-ERB, add a trailing hyphen, eg `<%= somevar -%>`.
+Markdown in Lannoc is powered by [Redcarpet](https://github.com/vmg/redcarpet), so it supports tables, strikethrough and fenced code (see [below](#syntax-highlighting)). After being rendered, markdown gets passed through ERB, so it can contain templates. If you don't want spurious newlines in your markdown-ERB, add a trailing hyphen, eg `<%= somevar -%>`.
+
+Article permalinks are constructed Jekyll-style, so the filepath of the article is ignored (only the date and title are relevant to the permalink). Symbols and whitespace are stripped out of the title before the path is constructed. A post whose date is August 21, 2003 and had the title "What's up doc" would have the permalink `/2003/08/21/whats-up-doc/`. Lannoc also provides indexes for the year, month and day. For example, `/2003/08/` would show you all the posts from August of 2003. Dates should be written in the [YAML timestamp format](http://yaml.org/type/timestamp.html) (basically ISO8601), and the format for printed dates is controlled by the `date` key in nanoc.yaml.
+
+## Syntax highlighting
+
+By default, Lannoc uses [CodeRay](https://github.com/rubychan/coderay) for syntax highlighting. If you prefer Pygments, or you want stronger Jekyll compatibility, you can easily switch back to [Pygments.rb](https://github.com/tmm1/pygments.rb). CSS files are included and linked for both highlighters, and I'm pretty confident Lannoc will work with either of them. Just change a single line in the Rules to switch from one to the other.
 
 Due to the interplay of poole.css and coderay.css, it's pretty hard to get table-based line numbering working for CodeRay. (The padding on `pre` elements is all out of whack.) Personally, I think most snippets will be fine without it, and I also think the padding of the original Poole code blocks is nicer without line numbers. I'd gladly accept any CSS improvements if they can make code blocks look good with and without line numbers. In the meantime, if you do want line numbering, apply this patch:
 
 ```bash
 $ git am line-numbering.patch
 ```
-
-Article permalinks are constructed Jekyll-style, so the filepath of the article is ignored (only the date and title are relevant to the permalink). Symbols and whitespace are stripped out of the title before the path is constructed. A post whose date is August 21, 2003 and had the title "What's up doc" would have the permalink `/2003/08/21/whats-up-doc/`. Lannoc also provides indexes for the year, month and day. For example, `/2003/08/` would show you all the posts from August of 2003. Dates should be written in the [YAML timestamp format](http://yaml.org/type/timestamp.html) (basically ISO8601), and the format for printed dates is controlled by the `date` key in nanoc.yaml.
 
 ## Tags
 
