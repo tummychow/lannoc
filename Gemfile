@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 gem 'nanoc', '~> 3.6.9'
 gem 'adsf', '~> 1.2.0'
 gem 'guard-nanoc', '~> 1.0.2'
+gem 'rake', '~> 10.3.0'
 
 # preferred markdown renderer
 gem 'redcarpet', '~> 3.1.1'

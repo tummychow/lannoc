@@ -42,7 +42,7 @@ The routing block is pretty simple, and doesn't require much explanation. This i
 
 ## To Do
 
-- rakefile for automating common tasks (take a look at [octopress rakefile](https://github.com/imathis/octopress/blob/master/Rakefile) for ideas)
+- expand rakefile (deploy tasks?)
 - atom feed logos on paginated indices (/atom.xml) and individual tag pages (/tag/yourtaghere/atom.xml)
 - pandoc shell-call helper? (i use pandoc a lot)
 - rendered excerpts using `<!-- more -->`
