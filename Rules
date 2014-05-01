@@ -10,7 +10,7 @@ preprocess do
   # http://stackoverflow.com/a/503201/3274401
   2.upto((articles.length - 1) / @config[:pagination] + 1) do |page_id|
     @items << Nanoc::Item.new(
-      "<%= render 'paginate', :page_id => #{page_id} %>",
+      "<%= render 'partials/paginate', :page_id => #{page_id} %>",
       {:title => "Page #{page_id}", :extension => 'html'},
       "/page/#{page_id}/"
     )
@@ -22,7 +22,7 @@ preprocess do
   # atom feeds and article lists by tag
   sorted_tags.each do |tag|
     @items << Nanoc::Item.new(
-      "<%= render 'tag_list', :tag => \"#{tag}\" %>",
+      "<%= render 'partials/tag_list', :tag => \"#{tag}\" %>",
       {:title => "Tag - #{tag}", :kind => 'fixed', :extension => 'html'},
       "/tag/#{tag}/"
     )

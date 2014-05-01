@@ -3,6 +3,6 @@
   <%= item.compiled_content(:snapshot => :render_md) %>
 <% end %>
 
-<%= render 'article_list', :articles => for_tag(sorted_articles, @tag) %>
+<%= render 'partials/article_list', :articles => for_tag(sorted_articles, @tag) %>
 
 <link href="/tag/<%=u @tag %>/atom.xml" type="application/atom+xml" rel="alternate">

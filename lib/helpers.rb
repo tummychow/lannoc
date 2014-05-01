@@ -83,7 +83,7 @@ def generate_ymd_indices
   ret = []
   years.each do |year, a_year|
     ret << Nanoc::Item.new(
-      '<%= render \'article_list\', :articles => @item[:list] %>',
+      '<%= render \'partials/article_list\', :articles => @item[:list] %>',
       {
         :title => Date.new(year).strftime(@config[:year]),
         :kind => 'fixed', :extension => 'html', :list => a_year
@@ -93,7 +93,7 @@ def generate_ymd_indices
 
     months[year].each do |month, a_month|
       ret << Nanoc::Item.new(
-        '<%= render \'article_list\', :articles => @item[:list] %>',
+        '<%= render \'partials/article_list\', :articles => @item[:list] %>',
         {
           :title => Date.new(year, month).strftime(@config[:monthyear]),
           :kind => 'fixed', :extension => 'html', :list => a_month
@@ -103,7 +103,7 @@ def generate_ymd_indices
 
       days[year][month].each do |day, a_day|
         ret << Nanoc::Item.new(
-          '<%= render \'article_list\', :articles => @item[:list] %>',
+          '<%= render \'partials/article_list\', :articles => @item[:list] %>',
           {
             :title => Date.new(year, month, day).strftime(@config[:date]),
             :kind => 'fixed', :extension => 'html', :list => a_day
