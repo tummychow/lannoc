@@ -18,3 +18,6 @@ gem 'rouge', '~> 1.3.3'
 
 # required for atom feed generation
 gem 'builder', '~> 3.2.2'
+
+# used for URL generation
+gem 'stringex', '~> 2.5.2'

@@ -15,12 +15,10 @@ end
 
 
 
-require 'uri'
-# Sanitize a single path segment, removing most symbols and whitespace.
+require 'stringex_lite'
+# Invoke stringex's to_url on the target string.
 def u(str)
-  # see https://github.com/jekyll/jekyll/blob/master/lib/jekyll/url.rb#L92
-  # and http://blog.lunatech.com/2009/02/03/what-every-web-developer-must-know-about-url-encoding
-  URI.escape(str.gsub(%r{[/=:,;~ ]+}, '-').gsub(%r{[^a-zA-Z\d\-+_.]}, '').downcase)
+  str.to_url
 end
 
 
