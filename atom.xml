@@ -17,6 +17,8 @@
     <link rel="alternate" href="https://tummychow.github.io/lannoc/2014/01/02/introducing-lanyon/"/>
     <content type="html">&lt;p&gt;Lanyon is an unassuming &lt;a href="http://jekyllrb.com"&gt;Jekyll&lt;/a&gt; theme that places content first by tucking away navigation in a hidden drawer. It’s based on &lt;a href="http://getpoole.com"&gt;Poole&lt;/a&gt;, the Jekyll butler.&lt;/p&gt;
 
+&lt;!-- more --&gt;
+
 &lt;h3&gt;Built on Poole&lt;/h3&gt;
 
 &lt;p&gt;Poole is the Jekyll Butler, serving as an upstanding and effective foundation for Jekyll themes by &lt;a href="https://twitter.com/mdo"&gt;@mdo&lt;/a&gt;. Poole, and every theme built on it (like Lanyon here) includes the following:&lt;/p&gt;
