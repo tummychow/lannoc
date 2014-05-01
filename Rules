@@ -80,7 +80,7 @@ end
 
 
 
-route '/404' do
+route '/404/' do
   '/404.html'
 end
 
