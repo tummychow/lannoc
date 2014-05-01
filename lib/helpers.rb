@@ -1,3 +1,6 @@
+require 'rubygems'
+require 'bundler/setup'
+
 include Nanoc::Helpers::Rendering
 include Nanoc::Helpers::Blogging
 include Nanoc::Helpers::HTMLEscape
