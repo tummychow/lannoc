@@ -8,3 +8,5 @@ Rules text
 *.md text
 *.html text
 *.erb text
+
+*.css text
