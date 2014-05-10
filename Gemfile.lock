@@ -32,7 +32,7 @@ GEM
     lumberjack (1.0.5)
     method_source (0.8.2)
     mini_portile (0.5.3)
-    nanoc (3.6.9)
+    nanoc (3.6.11)
       cri (~> 2.3)
     nio4r (1.0.0)
     nokogiri (1.6.1)
