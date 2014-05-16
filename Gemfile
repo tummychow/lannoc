@@ -10,7 +10,7 @@ gem 'rake', '~> 10.3.0'
 gem 'redcarpet', '~> 3.1.1'
 
 # required for the relativize_paths filter
-gem 'nokogiri', '~> 1.5'
+gem 'nokogiri', '~> 1.6.1'
 
 # required for syntax highlighting
 #gem 'pygments.rb', '~> 0.5.0'
