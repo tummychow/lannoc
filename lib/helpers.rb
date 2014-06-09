@@ -8,12 +8,11 @@ include Nanoc::Helpers::HTMLEscape
 
 
 require 'redcarpet'
+require 'rouge'
+require 'rouge/plugins/redcarpet'
 class HTMLPantsCode < Redcarpet::Render::HTML
   include Redcarpet::Render::SmartyPants
-  def block_code(code, language)
-    # https://gist.github.com/tom--/7329710
-    "<pre><code class=\"language-#{language}\">#{h code}</code></pre>"
-  end
+  include Rouge::Plugins::Redcarpet
 end
 
 

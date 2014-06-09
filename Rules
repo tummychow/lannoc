@@ -50,8 +50,6 @@ compile '*' do
           :strikethrough => true
         }
 
-      filter :colorize_syntax, :default_colorizer => :rouge
-
       snapshot :render_md # currently equivalent to :pre
     end
 
