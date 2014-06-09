@@ -30,7 +30,9 @@
 &lt;li&gt;Support for a wide gamut of HTML elements&lt;/li&gt;
 &lt;li&gt;Related posts (time-based, because Jekyll) below each post&lt;/li&gt;
 &lt;li&gt;Syntax highlighting, courtesy Pygments (the Python-based code snippet highlighter)&lt;/li&gt;
-&lt;/ul&gt;&lt;h3&gt;Lanyon features&lt;/h3&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;Lanyon features&lt;/h3&gt;
 
 &lt;p&gt;In addition to the features of Poole, Lanyon adds the following:&lt;/p&gt;
 
@@ -40,7 +42,9 @@
 &lt;li&gt;Two orientations for content and sidebar, default (left sidebar) and &lt;a href="https://github.com/poole/lanyon#reverse-layout"&gt;reverse&lt;/a&gt; (right sidebar), available via &lt;code&gt;&amp;lt;body&amp;gt;&lt;/code&gt; classes&lt;/li&gt;
 &lt;li&gt;
 &lt;a href="https://github.com/poole/lanyon#themes"&gt;Eight optional color schemes&lt;/a&gt;, available via &lt;code&gt;&amp;lt;body&amp;gt;&lt;/code&gt; classes&lt;/li&gt;
-&lt;/ul&gt;&lt;p&gt;&lt;a href="https://github.com/poole/lanyon#readme"&gt;Head to the readme&lt;/a&gt; to learn more.&lt;/p&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href="https://github.com/poole/lanyon#readme"&gt;Head to the readme&lt;/a&gt; to learn more.&lt;/p&gt;
 
 &lt;h3&gt;Browser support&lt;/h3&gt;
 
@@ -50,7 +54,8 @@
 
 &lt;p&gt;Lanyon is developed on and hosted with GitHub. Head to the &lt;a href="https://github.com/poole/lanyon"&gt;GitHub repository&lt;/a&gt; for downloads, bug reports, and features requests.&lt;/p&gt;
 
-&lt;p&gt;Thanks!&lt;/p&gt;</content>
+&lt;p&gt;Thanks!&lt;/p&gt;
+</content>
   </entry>
   <entry>
     <id>tag:tummychow.github.io,2013-12-31:/lannoc/2013/12/31/whats-jekyll/</id>
@@ -66,6 +71,7 @@
 
 &lt;p&gt;It’s an immensely useful tool and one we encourage you to use here with Hyde.&lt;/p&gt;
 
-&lt;p&gt;Find out more by &lt;a href="https://github.com/mojombo/jekyll"&gt;visiting the project on GitHub&lt;/a&gt;.&lt;/p&gt;</content>
+&lt;p&gt;Find out more by &lt;a href="https://github.com/mojombo/jekyll"&gt;visiting the project on GitHub&lt;/a&gt;.&lt;/p&gt;
+</content>
   </entry>
 </feed>
