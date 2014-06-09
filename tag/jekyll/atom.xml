@@ -15,7 +15,7 @@
     <published>2014-01-02T05:00:00Z</published>
     <updated>2014-01-02T05:00:00Z</updated>
     <link rel="alternate" href="https://tummychow.github.io/lannoc/2014/01/02/introducing-lanyon/"/>
-    <content type="html">&lt;p&gt;Lanyon is an unassuming &lt;a href="http://jekyllrb.com"&gt;Jekyll&lt;/a&gt; theme that places content first by tucking away navigation in a hidden drawer. It’s based on &lt;a href="http://getpoole.com"&gt;Poole&lt;/a&gt;, the Jekyll butler.&lt;/p&gt;
+    <content type="html">&lt;p&gt;Lanyon is an unassuming &lt;a href="http://jekyllrb.com"&gt;Jekyll&lt;/a&gt; theme that places content first by tucking away navigation in a hidden drawer. It&amp;rsquo;s based on &lt;a href="http://getpoole.com"&gt;Poole&lt;/a&gt;, the Jekyll butler.&lt;/p&gt;
 
 &lt;!-- more --&gt;
 
@@ -40,8 +40,7 @@
 &lt;li&gt;Toggleable sliding sidebar (built with only CSS) via &lt;strong&gt;☰&lt;/strong&gt; link in top corner&lt;/li&gt;
 &lt;li&gt;Sidebar includes support for textual modules and a dynamically generated navigation with active link support&lt;/li&gt;
 &lt;li&gt;Two orientations for content and sidebar, default (left sidebar) and &lt;a href="https://github.com/poole/lanyon#reverse-layout"&gt;reverse&lt;/a&gt; (right sidebar), available via &lt;code&gt;&amp;lt;body&amp;gt;&lt;/code&gt; classes&lt;/li&gt;
-&lt;li&gt;
-&lt;a href="https://github.com/poole/lanyon#themes"&gt;Eight optional color schemes&lt;/a&gt;, available via &lt;code&gt;&amp;lt;body&amp;gt;&lt;/code&gt; classes&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/poole/lanyon#themes"&gt;Eight optional color schemes&lt;/a&gt;, available via &lt;code&gt;&amp;lt;body&amp;gt;&lt;/code&gt; classes&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;a href="https://github.com/poole/lanyon#readme"&gt;Head to the readme&lt;/a&gt; to learn more.&lt;/p&gt;
@@ -63,13 +62,13 @@
     <published>2013-12-31T05:00:00Z</published>
     <updated>2013-12-31T05:00:00Z</updated>
     <link rel="alternate" href="https://tummychow.github.io/lannoc/2013/12/31/whats-jekyll/"/>
-    <content type="html">&lt;p&gt;&lt;a href="http://jekyllrb.com"&gt;Jekyll&lt;/a&gt; is a static site generator, an open-source tool for creating simple yet powerful websites of all shapes and sizes. From &lt;a href="https://github.com/mojombo/jekyll/blob/master/README.markdown"&gt;the project’s readme&lt;/a&gt;:&lt;/p&gt;
+    <content type="html">&lt;p&gt;&lt;a href="http://jekyllrb.com"&gt;Jekyll&lt;/a&gt; is a static site generator, an open-source tool for creating simple yet powerful websites of all shapes and sizes. From &lt;a href="https://github.com/mojombo/jekyll/blob/master/README.markdown"&gt;the project&amp;rsquo;s readme&lt;/a&gt;:&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;Jekyll is a simple, blog aware, static site generator. It takes a template directory […] and spits out a complete, static website suitable for serving with Apache or your favorite web server. This is also the engine behind GitHub Pages, which you can use to host your project’s page or blog right here from GitHub.&lt;/p&gt;
+&lt;p&gt;Jekyll is a simple, blog aware, static site generator. It takes a template directory [&amp;hellip;] and spits out a complete, static website suitable for serving with Apache or your favorite web server. This is also the engine behind GitHub Pages, which you can use to host your project’s page or blog right here from GitHub.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;It’s an immensely useful tool and one we encourage you to use here with Hyde.&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s an immensely useful tool and one we encourage you to use here with Hyde.&lt;/p&gt;
 
 &lt;p&gt;Find out more by &lt;a href="https://github.com/mojombo/jekyll"&gt;visiting the project on GitHub&lt;/a&gt;.&lt;/p&gt;
 </content>

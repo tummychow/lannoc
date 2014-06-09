@@ -32,14 +32,11 @@
 &lt;p&gt;HTML defines a long list of available inline tags, a complete list of which can be found on the &lt;a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element"&gt;Mozilla Developer Network&lt;/a&gt;.&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;
-&lt;strong&gt;To bold text&lt;/strong&gt;, use &lt;code&gt;&amp;lt;strong&amp;gt;&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;
-&lt;em&gt;To italicize text&lt;/em&gt;, use &lt;code&gt;&amp;lt;em&amp;gt;&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;To bold text&lt;/strong&gt;, use &lt;code&gt;&amp;lt;strong&amp;gt;&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;To italicize text&lt;/em&gt;, use &lt;code&gt;&amp;lt;em&amp;gt;&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;Abbreviations, like &lt;abbr title="HyperText Markup Langage"&gt;HTML&lt;/abbr&gt; should use &lt;code&gt;&amp;lt;abbr&amp;gt;&lt;/code&gt;, with an optional &lt;code&gt;title&lt;/code&gt; attribute for the full phrase.&lt;/li&gt;
-&lt;li&gt;Citations, like &lt;cite&gt;— Mark otto&lt;/cite&gt;, should use &lt;code&gt;&amp;lt;cite&amp;gt;&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;
-&lt;del&gt;Deleted&lt;/del&gt; text should use &lt;code&gt;&amp;lt;del&amp;gt;&lt;/code&gt; and &lt;ins&gt;inserted&lt;/ins&gt; text should use &lt;code&gt;&amp;lt;ins&amp;gt;&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Citations, like &lt;cite&gt;&amp;mdash; Mark otto&lt;/cite&gt;, should use &lt;code&gt;&amp;lt;cite&amp;gt;&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;del&gt;Deleted&lt;/del&gt; text should use &lt;code&gt;&amp;lt;del&amp;gt;&lt;/code&gt; and &lt;ins&gt;inserted&lt;/ins&gt; text should use &lt;code&gt;&amp;lt;ins&amp;gt;&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;Superscript &lt;sup&gt;text&lt;/sup&gt; uses &lt;code&gt;&amp;lt;sup&amp;gt;&lt;/code&gt; and subscript &lt;sub&gt;text&lt;/sub&gt; uses &lt;code&gt;&amp;lt;sub&amp;gt;&lt;/code&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -52,14 +49,16 @@
 &lt;h3&gt;Code&lt;/h3&gt;
 
 &lt;p&gt;Cum sociis natoque penatibus et magnis dis &lt;code&gt;code element&lt;/code&gt; montes, nascetur ridiculus mus.&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-javascript highlight"&gt;&lt;span class="c1"&gt;// Example can be run directly in your JavaScript console
+&lt;pre&gt;&lt;code class="highlight javascript"&gt;&lt;span class="c1"&gt;// Example can be run directly in your JavaScript console
 &lt;/span&gt;
 &lt;span class="c1"&gt;// Create a function that takes two arguments and returns the sum of those arguments
 &lt;/span&gt;&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;adder&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nb"&gt;Function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"a"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"b"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"return a + b"&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 
 &lt;span class="c1"&gt;// Call the function
 &lt;/span&gt;&lt;span class="nx"&gt;adder&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-&lt;span class="sr"&gt;/&lt;/span&gt;&lt;span class="err"&gt;/ &amp;gt; 8&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;span class="c1"&gt;// &amp;gt; 8
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+
 &lt;p&gt;Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.&lt;/p&gt;
 
 &lt;h3&gt;Lists&lt;/h3&gt;
@@ -99,15 +98,13 @@
 
 &lt;p&gt;Aenean lacinia bibendum nulla sed consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit.&lt;/p&gt;
 
-&lt;table&gt;
-&lt;thead&gt;
+&lt;table&gt;&lt;thead&gt;
 &lt;tr&gt;
 &lt;th&gt;Name&lt;/th&gt;
 &lt;th&gt;Upvotes&lt;/th&gt;
 &lt;th&gt;Downvotes&lt;/th&gt;
 &lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
+&lt;/thead&gt;&lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;Alice&lt;/td&gt;
 &lt;td&gt;10&lt;/td&gt;
@@ -128,8 +125,7 @@
 &lt;td&gt;21&lt;/td&gt;
 &lt;td&gt;23&lt;/td&gt;
 &lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
+&lt;/tbody&gt;&lt;/table&gt;
 
 &lt;p&gt;Nullam id dolor id nibh ultricies vehicula ut id elit. Sed posuere consectetur est at lobortis. Nullam quis risus eget urna mollis ornare vel eu leo.&lt;/p&gt;
 
@@ -144,13 +140,13 @@
     <published>2013-12-31T05:00:00Z</published>
     <updated>2013-12-31T05:00:00Z</updated>
     <link rel="alternate" href="https://tummychow.github.io/lannoc/2013/12/31/whats-jekyll/"/>
-    <content type="html">&lt;p&gt;&lt;a href="http://jekyllrb.com"&gt;Jekyll&lt;/a&gt; is a static site generator, an open-source tool for creating simple yet powerful websites of all shapes and sizes. From &lt;a href="https://github.com/mojombo/jekyll/blob/master/README.markdown"&gt;the project’s readme&lt;/a&gt;:&lt;/p&gt;
+    <content type="html">&lt;p&gt;&lt;a href="http://jekyllrb.com"&gt;Jekyll&lt;/a&gt; is a static site generator, an open-source tool for creating simple yet powerful websites of all shapes and sizes. From &lt;a href="https://github.com/mojombo/jekyll/blob/master/README.markdown"&gt;the project&amp;rsquo;s readme&lt;/a&gt;:&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;Jekyll is a simple, blog aware, static site generator. It takes a template directory […] and spits out a complete, static website suitable for serving with Apache or your favorite web server. This is also the engine behind GitHub Pages, which you can use to host your project’s page or blog right here from GitHub.&lt;/p&gt;
+&lt;p&gt;Jekyll is a simple, blog aware, static site generator. It takes a template directory [&amp;hellip;] and spits out a complete, static website suitable for serving with Apache or your favorite web server. This is also the engine behind GitHub Pages, which you can use to host your project’s page or blog right here from GitHub.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;It’s an immensely useful tool and one we encourage you to use here with Hyde.&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s an immensely useful tool and one we encourage you to use here with Hyde.&lt;/p&gt;
 
 &lt;p&gt;Find out more by &lt;a href="https://github.com/mojombo/jekyll"&gt;visiting the project on GitHub&lt;/a&gt;.&lt;/p&gt;
 </content>
