@@ -42,13 +42,9 @@ Article permalinks are constructed Jekyll-style, so the filepath of the article 
 
 ## Syntax highlighting
 
-By default, Lannoc uses [CodeRay](https://github.com/rubychan/coderay) for syntax highlighting. If you prefer Pygments, or you want stronger Jekyll compatibility, you can easily switch back to [Pygments.rb](https://github.com/tmm1/pygments.rb). CSS files are included and linked for both highlighters, and I'm pretty confident Lannoc will work with either of them. Just change a single line in the Rules to switch from one to the other.
+Lannoc uses [Rouge](https://github.com/jneen/rouge), a pure Ruby syntax highlighter with Pygments CSS compatibility. Because Rouge is compatible with Pygments, I'm also recycling the original pygments.css from Lanyon. I haven't tested Rouge with line numbers extensively, but from past experience, it didn't go too well (too much padding when line numbering is turned on, due to interplay with poole.css), so I'm not using line numbering.
 
-Due to the interplay of poole.css and coderay.css, it's pretty hard to get table-based line numbering working for CodeRay. (The padding on `pre` elements is all out of whack.) Personally, I think most snippets will be fine without it, and I also think the padding of the original Poole code blocks is nicer without line numbers. I'd gladly accept any CSS improvements if they can make code blocks look good with and without line numbers. In the meantime, if you do want line numbering, apply this patch:
-
-```bash
-$ git am line-numbering.patch
-```
+Note: I was using another syntax highlighter, CodeRay, before Rouge in nanoc was stabilized. Lannoc still requires CodeRay (because of pry) but doesn't use it for syntax highlighting anymore.
 
 ## Tags
 

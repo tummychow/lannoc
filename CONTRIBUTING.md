@@ -34,9 +34,7 @@ The [Rules](Rules) file is the heart of nanoc, that crucial feature that puts it
 
 In the preprocess block, we do any mutations that are needed to the `@items` array. (This array is frozen once the preprocess step is finished, and I think its elements get frozen too, so this is your only chance to change it.) Right now, I do a lot of work here, but I'm probably going to clean it up and move it to `lib` in the future. Try not to make this block too verbose.
 
-The compile block is fairly straightforward. The files we care about most are HTML and Markdown, both of which get passed through ERB. Then, Markdown gets rendered (Redcarpet) and syntax-highlighted ([CodeRay](https://github.com/rubychan/coderay)), and then all the layouting happens. At the end, we relativize paths, which is useful when hosting on a subdomain (eg a GitHub Page).
-
-Why CodeRay? Mainly because it's pure Ruby. Ultraviolet takes advantage of TextMate grammars, which is great, but it's no longer maintained. CodeRay seems to be alive (for now). Pygments.rb is backed by the well-established Pygments library, but spawning Python processes is slow and forces you to set up a Python environment in which to install Pygments itself. (Lannoc still supports Pygments.rb though; see the [README](README.md#syntax-highlighting).) In the future, nanoc is going to release support for [Rouge](https://github.com/jneen/rouge), which is also pure Ruby, but directly supports Pygments CSS, and I'm going to switch to that because Pygments CSS is easier to work with.
+The compile block is fairly straightforward. The files we care about most are HTML and Markdown, both of which get passed through ERB. Then, Markdown gets rendered (Redcarpet renderer with Smartypants and Rouge integration), and then all the layouting happens. At the end, we relativize paths, which is useful when hosting on a subdomain (eg a GitHub Page).
 
 The routing block is pretty simple, and doesn't require much explanation. This is slated for removal in nanoc4 (routes will be integrated into the compile block), so don't get too familiar with it. Note the special route for 404. We do this specifically to support GitHub Pages.
 
@@ -45,4 +43,3 @@ The routing block is pretty simple, and doesn't require much explanation. This i
 - expand rakefile (deploy tasks?)
 - pandoc shell-call helper? (i use pandoc a lot)
 - xml sitemap using the existing helper
-- move to [rouge](https://github.com/jneen/rouge) (support is in [master](https://github.com/nanoc/nanoc/commit/2d9a7b9), but has not yet been [released](https://github.com/nanoc/nanoc/compare/3.6.9...master))
